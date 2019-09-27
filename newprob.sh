@@ -31,7 +31,7 @@ echo \} >> $PROG_PATH
 # RUN.SH FILE CREATION
 echo \#!/bin/sh > $PROB_DIR/run.sh
 echo $GCC_PATH $GCC_ARGS prog.cpp -o prog >> $PROB_DIR/run.sh
-echo "for TEST in ./tests/*.in; do cat \$TEST | ./prog; done" >> $PROB_DIR/run.sh
+echo "i=1; for TEST in ./tests/*.in; do echo \"TEST CASE $i\" && cat \$TEST | ./prog && echo '' && ((i=$i+1)); done" >> $PROB_DIR/run.sh
 chmod +x $PROB_DIR/run.sh
 
 # LINK.HTML FILE CREATION
