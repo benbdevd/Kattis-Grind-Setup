@@ -3,21 +3,27 @@ from os import walk
 readme = open('./Readme.md', 'w+')
 readme.write("""# Kattis Grind
 
+*"Rise and grind gamers, let's get this bread"* - PewDiePie on reviving the Third Reich.
+
 A repo of solved Kattis problems. Uses [Kattis-Grind-Setup](https://github.com/JarateKing/Kattis-Grind-Setup).
 
 ## Usage
 
-To create a new problem, run `new-problem.bat` and type the problem id on open Kattis.
+To create a new problem, run `new-problem.bat` on Windows, or `newprob.sh` on UNIX, and type the problem id on open Kattis.
 
-The source file for the problem is given as `prog.cpp` by default.
+The source file for the problem is given as `prog.cpp` by default; it includes <bits/stdc++.h> and a main function skeleton.
 
-To run compile and run a problem, run `run.bat` inside the problem folder.
+To run compile and run a problem, run `run.bat` on Windows, or `run.sh` on UNIX, inside the problem folder.
 
-To open a link to the problem online, run `kattis.bat` inside the problem folder.
+To open a link to the problem online, run `kattis.bat` on Windows, or open `link.html` on UNIX, inside the problem folder.
 
 ## Requirements
 
 * [GCC](https://gcc.gnu.org/) / [MinGW](http://mingw.org/) 
+
+### UNIX Requirements
+* zip
+* curl
 
 ## Resources
 
