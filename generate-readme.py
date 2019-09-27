@@ -3,8 +3,6 @@ from os import walk
 readme = open('./Readme.md', 'w+')
 readme.write("""# Kattis Grind
 
-*"Rise and grind gamers, let's get this bread"* - PewDiePie on reviving the Third Reich.
-
 A repo of solved Kattis problems. Uses [Kattis-Grind-Setup](https://github.com/JarateKing/Kattis-Grind-Setup).
 
 ## Usage
