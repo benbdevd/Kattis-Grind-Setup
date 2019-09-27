@@ -21,17 +21,17 @@ TEST_DIR=$PROB_DIR/tests
 mkdir -p $PROB_DIR
 
 # PROG.CPP FILE CREATION
-echo \#include \<bits/stdc++.h\> >> $PROG_PATH 
-echo using namespace std\; >> $PROG_PATH 
+echo '#include <bits/stdc++.h>' >> $PROG_PATH 
+echo 'using namespace std;' >> $PROG_PATH 
 echo >> $PROG_PATH
-echo int main\(\) \{ >> $PROG_PATH
+echo 'int main() {' >> $PROG_PATH
 echo >> $PROG_PATH
-echo \} >> $PROG_PATH
+echo '}' >> $PROG_PATH
 
 # RUN.SH FILE CREATION
 echo \#!/bin/sh > $PROB_DIR/run.sh
 echo $GCC_PATH $GCC_ARGS prog.cpp -o prog >> $PROB_DIR/run.sh
-echo "i=1; for TEST in ./tests/*.in; do echo \"TEST CASE $i\" && cat \$TEST | ./prog && echo '' && ((i=$i+1)); done" >> $PROB_DIR/run.sh
+echo 'i=1; for TEST in ./tests/*.in; do printf "TEST CASE $i: "; ANS="${TEST%??}ans"; RESULT=$(cat $TEST | ./prog); PASS=$(echo $RESULT | diff -s - $ANS); PASS=${PASS:0:5}; if [ "$PASS" = "Files" ] ; then echo "PASS"; else echo "FAIL(P)"; fi; echo $RESULT; echo ''; ((i=$i+1)); done' >> $PROB_DIR/run.sh
 chmod +x $PROB_DIR/run.sh
 
 # LINK.HTML FILE CREATION
