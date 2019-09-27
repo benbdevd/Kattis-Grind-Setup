@@ -1,4 +1,4 @@
-from os import walk
+from os import scandir
 
 readme = open('./Readme.md', 'w+')
 readme.write("""# Kattis Grind
@@ -39,10 +39,10 @@ Reference:
 
 """)
 problems = ''
-for (dirpath, dirnames, filenames) in walk('./problems/'):
-	if (dirpath[-1:] is not '/'):
-		problemName = dirpath.split('/')[-1:][0]
-		problemFile = dirpath + '/prog.cpp'
+for dirpath in scandir('./problems/'):
+	if dirpath.is_dir():
+		problemName = dirpath.name
+		problemFile = 'problems/' + dirpath.name + '/prog.cpp'
 		problemLink = 'https://open.kattis.com/problems/' + problemName
 		problems = problems + '* [![:link:](https://open.kattis.com/favicon)](' + problemLink + ') [' + problemName + '](' + problemFile + ')\n'
 		
