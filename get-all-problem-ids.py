@@ -15,27 +15,26 @@ def get_ids(page_num):
                all_ids.append(link['href'].split("/")[2])
 
 
-if not os.path.exists(OUTPUT_FILE):
-     all_ids = []
-     all_threads = []
-     for i in range(25):
-          print("Starting page: ", i)
-          t = threading.Thread(target=get_ids, args=(i,))
-          t.start()
-          all_threads.append(t)
-          
-     for thread in all_threads:
+all_ids = []
+all_threads = []
+for i in range(25):
+     print("Starting page: ", i)
+     t = threading.Thread(target=get_ids, args=(i,))
+     t.start()
+     all_threads.append(t)
+     
+for thread in all_threads:
           thread.join()
 
-     print("All pages read.")
-     all_ids.sort()
-     with open(OUTPUT_FILE, 'w') as f:
-          for item in all_ids:
-               f.write("%s\n" % item)
+print("All pages read.")
+all_ids.sort()
+with open(OUTPUT_FILE, 'w') as f:
+     for item in all_ids:
+          f.write("%s\n" % item)
 
-with open(OUTPUT_FILE) as problem_list:
-     for problem_id in problem_list:
-          if os.name is 'nt':
-               os.system('new-problem.bat ' + problem_id)
-          else:
-               os.system('./newprob.sh ' + problem_id)
+
+for problem_id in all_ids:
+     if os.name is 'nt':
+          os.system('new-problem.bat ' + problem_id)
+     else:
+          os.system('./newprob.sh ' + problem_id)
