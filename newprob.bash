@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # PROBLEM ID INPUT
 PROB_ID=$1
@@ -28,16 +28,16 @@ echo 'int main() {' >> $PROG_PATH
 echo >> $PROG_PATH
 echo '}' >> $PROG_PATH
 
-# RUN.SH FILE CREATION
-echo \#!/bin/sh > $PROB_DIR/run.sh
-echo $GCC_PATH $GCC_ARGS prog.cpp -o prog >> $PROB_DIR/run.sh
-echo 'i=1; for TEST in ./tests/*.in; do printf "TEST CASE $i: "; ANS="${TEST%??}ans"; RESULT=$(cat $TEST | ./prog); PASS=$(echo $RESULT | diff -s - $ANS); PASS=${PASS:0:5}; if [ "$PASS" = "Files" ] ; then echo "PASS"; else echo "FAIL(P)"; fi; echo $RESULT; echo ''; ((i=$i+1)); done' >> $PROB_DIR/run.sh
-chmod +x $PROB_DIR/run.sh
+# RUN.BASH FILE CREATION
+echo \#!/bin/bash > $PROB_DIR/run.bash
+echo $GCC_PATH $GCC_ARGS prog.cpp -o prog >> $PROB_DIR/run.bash
+echo 'i=1; for TEST in ./tests/*.in; do printf "TEST CASE $i: "; ANS="${TEST%??}ans"; RESULT=$(cat $TEST | ./prog); PASS=$(echo $RESULT | diff -s - $ANS); PASS=${PASS:0:5}; if [ "$PASS" = "Files" ] ; then echo "PASS"; else echo "FAIL(P)"; fi; echo $RESULT; echo ''; ((i=$i+1)); done' >> $PROB_DIR/run.bash
+chmod +x $PROB_DIR/run.bash
 
 # LINK.HTML FILE CREATION
-echo $'<html>\n<head>\n<meta http-equiv=\"refresh\" content=\"0; url=https://open.kattis.com/problems/' > $LINK_PATH
-echo $PROB_ID >> $LINK_PATH
-echo $'\" />\n</head>\n</html>\n' >> $LINK_PATH
+printf $'<html>\n<head>\n<meta http-equiv=\"refresh\" content=\"0; url=https://open.kattis.com/problems/' > $LINK_PATH
+printf $PROB_ID >> $LINK_PATH
+printf $'\"/>\n</head>\n</html>\n' >> $LINK_PATH
 
 mkdir $TEST_DIR
 
