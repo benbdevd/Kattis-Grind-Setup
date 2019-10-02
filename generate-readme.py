@@ -20,18 +20,36 @@ To open a link to the problem online, run `kattis.bat` on Windows, or open `link
 * [GCC](https://gcc.gnu.org/) / [MinGW](http://mingw.org/) 
 
 ### UNIX Requirements
+* bash
 * zip
 * curl
+* diff
+
+## UNIX Configuration Notes
+
+It is recommended to use the included GCC_ARGS since they are [the args Kattis uses](https://open.kattis.com/help/cpp).
+
+You must change the GCC_PATH to a valid G++ compiler binary path, or an equivalent alias; eg. `GCC_PATH='g++'` or `GCC_PATH='/usr/bin/g++'`
+
+Be careful when using an alias with arguments, because the GCC_ARGS variable will also be used; set them to empty string if you do not want them.
+
+### macOS Configuration
+
+It is recommended that you install [homebrew](https://brew.sh/) and use it to install gcc. This is so that you can use GNU extensions, `#include <bits/stdc++.h>`, and it is closer to Kattis' environment.
+
+You must then set GCC_PATH to `/usr/local/bin/g++-9` or equivalent.
 
 ## Resources
 
+* [Kattis Help Page](https://open.kattis.com/help)
+
 Development:
-* https://www.onlinegdb.com/online_c++_compiler
+* [Online C++ Compiler](https://www.onlinegdb.com/online_c++_compiler)
 * http://quick-bench.com
 * https://godbolt.org/
 
 Reference:
-* https://github.com/JarateKing/Competitive-Programming-Snippets
+* [JarateKings's Competitive Programming Code Snippets](https://github.com/JarateKing/Competitive-Programming-Snippets)
 * https://cpbook.net/
 * https://cp-algorithms.com/
 * https://www.geeksforgeeks.org/how-to-begin-with-competitive-programming/

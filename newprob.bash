@@ -9,7 +9,7 @@ if [ $# -eq 0 ]
 fi
 
 # GCC CONSTANTS
-GCC_PATH="/usr/local/bin/g++-9"
+GCC_PATH="g++"
 GCC_ARGS="-g -O2 -std=gnu++17"
 
 # PATHS AND DIRECTORIES
