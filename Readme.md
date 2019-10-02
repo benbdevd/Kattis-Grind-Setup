@@ -46,7 +46,7 @@ Development:
 * https://godbolt.org/
 
 Reference:
-* [JarateKings's Competitive Programming Code Snippets](https://github.com/JarateKing/Competitive-Programming-Snippets)
+* [JarateKing's Competitive Programming Code Snippets](https://github.com/JarateKing/Competitive-Programming-Snippets)
 * https://cpbook.net/
 * https://cp-algorithms.com/
 * https://www.geeksforgeeks.org/how-to-begin-with-competitive-programming/
